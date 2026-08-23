@@ -1,0 +1,299 @@
+====================================================
+MACROECONOMÍA - COLOMBIA
+CDT 90 DÍAS E INFLACIÓN
+====================================================
+
+PERIODO DE ESTIMACIÓN:
+2008-04-01 a 2026-07-01
+
+OBSERVACIONES:
+[1] 220
+
+
+====================================================
+ESTACIONARIEDAD
+====================================================
+
+ADF inflación nivel:
+
+	Augmented Dickey-Fuller Test
+
+data:  inflacion_ts
+Dickey-Fuller = -4.3167, Lag order = 6, p-value = 0.01
+alternative hypothesis: stationary
+
+
+ADF CDT nivel:
+
+	Augmented Dickey-Fuller Test
+
+data:  cdt_ts
+Dickey-Fuller = -3.991, Lag order = 6, p-value = 0.01046
+alternative hypothesis: stationary
+
+
+KPSS inflación nivel:
+
+	KPSS Test for Level Stationarity
+
+data:  inflacion_ts
+KPSS Level = 1.0113, Truncation lag parameter = 4, p-value = 0.01
+
+
+KPSS CDT nivel:
+
+	KPSS Test for Level Stationarity
+
+data:  cdt_ts
+KPSS Level = 1.1548, Truncation lag parameter = 4, p-value = 0.01
+
+
+ADF inflación primera diferencia:
+
+	Augmented Dickey-Fuller Test
+
+data:  inflacion_diff
+Dickey-Fuller = -3.473, Lag order = 6, p-value = 0.04633
+alternative hypothesis: stationary
+
+
+ADF CDT primera diferencia:
+
+	Augmented Dickey-Fuller Test
+
+data:  cdt_diff
+Dickey-Fuller = -3.9247, Lag order = 6, p-value = 0.01377
+alternative hypothesis: stationary
+
+
+
+====================================================
+ARIMAX
+====================================================
+
+Series: inflacion_ts 
+Regression with ARIMA(2,0,1)(2,0,0)[12] errors 
+
+Coefficients:
+         ar1      ar2      ma1     sar1     sar2  intercept   cdt90
+      1.8681  -0.8744  -0.4347  -0.5694  -0.3434     3.9809  0.1382
+s.e.  0.0564   0.0559   0.1236   0.0667   0.0663     0.8183  0.0608
+
+sigma^2 = 0.05718:  log likelihood = 0.91
+AIC=14.19   AICc=14.87   BIC=41.34
+
+Training set error measures:
+                       ME      RMSE       MAE        MPE     MAPE       MASE
+Training set 0.0007914308 0.2352973 0.1804663 -0.3502896 4.568856 0.08078708
+                   ACF1
+Training set 0.05339817
+
+
+AIC:
+[1] 14.18736
+
+BIC:
+[1] 41.33638
+
+Ljung-Box:
+
+	Box-Ljung test
+
+data:  residuos_arimax
+X-squared = 13.742, df = 7, p-value = 0.05597
+
+
+
+====================================================
+VAR
+====================================================
+
+
+VAR Estimation Results:
+========================= 
+Endogenous variables: inflacion, cdt90 
+Deterministic variables: const 
+Sample size: 218 
+Log Likelihood: 16.41 
+Roots of the characteristic polynomial:
+0.972 0.972 0.7471 0.3087
+Call:
+vars::VAR(y = datos_var_ts, p = p_bic, type = "const")
+
+
+Estimation results for equation inflacion: 
+========================================== 
+inflacion = inflacion.l1 + cdt90.l1 + inflacion.l2 + cdt90.l2 + const 
+
+             Estimate Std. Error t value             Pr(>|t|)    
+inflacion.l1  1.45626    0.06060  24.030 < 0.0000000000000002 ***
+cdt90.l1      0.29269    0.07415   3.947             0.000107 ***
+inflacion.l2 -0.46787    0.06217  -7.525     0.00000000000146 ***
+cdt90.l2     -0.30761    0.07063  -4.355     0.00002066800932 ***
+const         0.14545    0.04343   3.349             0.000959 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Residual standard error: 0.2716 on 213 degrees of freedom
+Multiple R-Squared: 0.9907,	Adjusted R-squared: 0.9906 
+F-statistic:  5698 on 4 and 213 DF,  p-value: < 0.00000000000000022 
+
+
+Estimation results for equation cdt90: 
+====================================== 
+cdt90 = inflacion.l1 + cdt90.l1 + inflacion.l2 + cdt90.l2 + const 
+
+             Estimate Std. Error t value             Pr(>|t|)    
+inflacion.l1  0.19529    0.04662   4.189             0.000041 ***
+cdt90.l1      1.53910    0.05704  26.983 < 0.0000000000000002 ***
+inflacion.l2 -0.16029    0.04783  -3.351             0.000951 ***
+cdt90.l2     -0.57103    0.05434 -10.509 < 0.0000000000000002 ***
+const         0.02658    0.03341   0.796             0.427101    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Residual standard error: 0.209 on 213 degrees of freedom
+Multiple R-Squared: 0.9952,	Adjusted R-squared: 0.9951 
+F-statistic: 1.109e+04 on 4 and 213 DF,  p-value: < 0.00000000000000022 
+
+
+
+Covariance matrix of residuals:
+          inflacion   cdt90
+inflacion   0.07379 0.01153
+cdt90       0.01153 0.04367
+
+Correlation matrix of residuals:
+          inflacion  cdt90
+inflacion    1.0000 0.2031
+cdt90        0.2031 1.0000
+
+
+
+
+Raíces VAR:
+[1] 0.9719617 0.9719617 0.7470681 0.3086880
+
+VAR estable:
+[1] TRUE
+
+
+Autocorrelación:
+
+	Portmanteau Test (asymptotic)
+
+data:  Residuals of VAR object modelo_var
+Chi-squared = 66.497, df = 40, p-value = 0.00532
+
+
+
+ARCH:
+
+	ARCH (multivariate)
+
+data:  Residuals of VAR object modelo_var
+Chi-squared = 64.925, df = 45, p-value = 0.02744
+
+
+
+Normalidad:
+$JB
+
+	JB-Test (multivariate)
+
+data:  Residuals of VAR object modelo_var
+Chi-squared = 1081.5, df = 4, p-value < 0.00000000000000022
+
+
+$Skewness
+
+	Skewness only (multivariate)
+
+data:  Residuals of VAR object modelo_var
+Chi-squared = 48.369, df = 2, p-value = 0.0000000000314
+
+
+$Kurtosis
+
+	Kurtosis only (multivariate)
+
+data:  Residuals of VAR object modelo_var
+Chi-squared = 1033.1, df = 2, p-value < 0.00000000000000022
+
+
+
+
+====================================================
+CAUSALIDAD DE GRANGER
+====================================================
+
+CDT90 -> Inflación:
+$Granger
+
+	Granger causality H0: cdt90 do not Granger-cause inflacion
+
+data:  VAR object modelo_var
+F-Test = 11.514, df1 = 2, df2 = 426, p-value = 0.00001349
+
+
+$Instant
+
+	H0: No instantaneous causality between: cdt90 and inflacion
+
+data:  VAR object modelo_var
+Chi-squared = 8.6395, df = 1, p-value = 0.00329
+
+
+
+Inflación -> CDT90:
+$Granger
+
+	Granger causality H0: inflacion do not Granger-cause cdt90
+
+data:  VAR object modelo_var
+F-Test = 13.979, df1 = 2, df2 = 426, p-value = 0.000001319
+
+
+$Instant
+
+	H0: No instantaneous causality between: inflacion and cdt90
+
+data:  VAR object modelo_var
+Chi-squared = 8.6395, df = 1, p-value = 0.00329
+
+
+
+
+====================================================
+VALIDACIÓN FUERA DE MUESTRA
+====================================================
+
+  modelo      RMSE       MAE
+1 ARIMAX 0.3636407 0.2684346
+2    VAR 2.0350709 1.7510781
+
+
+MEJOR MODELO:
+[1] "ARIMAX"
+
+
+====================================================
+PRONÓSTICO FINAL
+====================================================
+
+       fecha       mes pronostico limite_inferior_95 limite_superior_95
+1 2026-08-01    August   6.112736           5.644045           6.581427
+2 2026-09-01 September   6.117186           5.298007           6.936365
+3 2026-10-01   October   6.004769           4.827667           7.181871
+4 2026-11-01  November   6.143511           4.604371           7.682652
+5 2026-12-01  December   6.238970           4.339314           8.138627
+
+
+====================================================
+PREDICCIÓN AGOSTO 2026
+====================================================
+
+       fecha    mes pronostico limite_inferior_95 limite_superior_95
+1 2026-08-01 August   6.112736           5.644045           6.581427
