@@ -1,6 +1,6 @@
 # CDT Rates and Inflation in Colombia: ARIMAX and VAR Analysis
 
-This project explores the empirical relationship between the 90-day Certificate of Deposit (CDT) rate and annual inflation in Colombia . It evaluates the transmission of monetary policy by comparing a univariate ARIMAX framework against a bivariate Vector Autoregressive (VAR) system to identify which structure yields superior forecasting accuracy.
+Exploring the empirical relationship between the 90-day Certificate of Deposit (CDT) rate and annual inflation in Colombia . It evaluates the transmission of monetary policy by comparing a univariate ARIMAX framework against a bivariate Vector Autoregressive (VAR) system to identify which structure yields superior forecasting accuracy.
 
 ## Dataset & Scope
 *   **Frequencies & Metrics**: Monthly observations.
