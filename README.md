@@ -14,7 +14,7 @@ This project explores the empirical relationship between the 90-day Certificate 
 
 ### 1. Stylised Facts & Interaction
 *   **High Correlation**: There is a strong positive contemporary correlation of **0.8326** between inflation and the CDT90 rate over the sample period, indicating that interest rates dynamically co-move alongside price rises.
-*   **Bidirectional Predictive Causality**: Granger causality tests show a highly significant **bidirectional predictive relationship** (CDT90 $\rightarrow$ Inflation and Inflation $\rightarrow$ CDT90) [12, 15-17]. Past values of each series contain valuable statistical information to forecast the other, though this represents predictive rather than structural economic causality.
+*   **Bidirectional Predictive Causality**: Granger causality tests show a highly significant **bidirectional predictive relationship** (CDT90 $\rightarrow$ Inflation and Inflation $\rightarrow$ CDT90). Past values of each series contain valuable statistical information to forecast the other, though this represents predictive rather than structural economic causality.
 
 ### 2. Model Performance & Diagnostics
 *   **ARIMAX (ARIMA(2,0,1)(2,0,0)[14])**: Modelled with `CDT90` as an exogenous regressor (coefficient = **+0.1382**). Residuals are clean and behave as white noise, passing the Ljung-Box test for autocorrelation ($p = 0.1396$).
