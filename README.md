@@ -23,8 +23,8 @@ This project explores the empirical relationship between the 90-day Certificate 
 
 ## Inflation Projections (Aug–Dec 2026)
 Due to its superior predictive power, the ARIMAX model was selected for the final forecasts. It projects a highly inertial plateau with inflation remaining elevated near **6%** through the end of 2026:
-*   **August 2026**: **6.11%** (95% CI: 5.64% to 6.58%) [32, 36]
-*   **September 2026**: **6.12%** (95% CI: 5.30% to 6.94%) [32, 33, 36]
-*   **October 2026**: **6.00%** (95% CI: 4.83% to 7.18%) [32, 34, 36]
-*   **November 2026**: **6.14%** (95% CI: 4.60% to 7.68%) [32, 34, 36]
-*   **December 2026**: **6.24%** (95% CI: 4.34% to 8.14%) [32, 34, 36]
+*   **August 2026**: **6.11%** (95% CI: 5.64% to 6.58%)
+*   **September 2026**: **6.12%** (95% CI: 5.30% to 6.94%)
+*   **October 2026**: **6.00%** (95% CI: 4.83% to 7.18%)
+*   **November 2026**: **6.14%** (95% CI: 4.60% to 7.68%)
+*   **December 2026**: **6.24%** (95% CI: 4.34% to 8.14%)
